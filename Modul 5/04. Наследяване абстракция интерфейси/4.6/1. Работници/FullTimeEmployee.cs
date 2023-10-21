@@ -20,11 +20,9 @@ namespace _1._Работници {
             Console.WriteLine($"Department - {employeeDepartment}");
         }
         public override double CalculateSalary(int workingHours) {
-            throw new NotImplementedException();
+            return 250 + workingHours * 10.80;
         }
 
-        public override string GetDepartment() {
-            throw new NotImplementedException();
-        }
+        public override string GetDepartment() => employeeDepartment;
     }
 }
