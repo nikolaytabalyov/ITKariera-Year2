@@ -10,7 +10,21 @@
             _tankCapacity = tankCapacity;
         }
 
-        public abstract void Drive(double distance);
-        public abstract void Refuel(double liters);
+        public virtual void Drive(double distance) {
+            if (_fuel / _fuelConsumption >= distance) {
+                Console.WriteLine($"{GetType().Name} travelled {distance} km");
+                _fuel -= distance * _fuelConsumption;
+            } else {
+                Console.WriteLine($"{GetType().Name} needs refueling");
+            }
+        }
+        public virtual void Refuel(double liters) {
+            if (_fuel + liters > _tankCapacity)
+                Console.WriteLine("Cannot fit fuel in tank");
+            else
+                _fuel += liters;
+        }
+
+        public double GetFuel() => _fuel;
     }
 }
