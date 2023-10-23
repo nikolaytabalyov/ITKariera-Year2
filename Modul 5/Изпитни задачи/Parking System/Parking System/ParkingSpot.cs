@@ -36,29 +36,28 @@ public abstract class ParkingSpot
     }
 
     public virtual bool ParkVehicle(string registrationPlate, int hoursParked, string type) {
-        return true;
-
-
+        if (this.Type == type && !Occupied) {
+            _parkingIntervals.Add(new ParkingInterval(this, registrationPlate, hoursParked));
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public List<ParkingInterval> GetAllParkingIntervalsByRegistrationPlate(string registrationPlate)
-    {
-        //TODO: implement me
-        throw new NotImplementedException();
+    public List<ParkingInterval> GetAllParkingIntervalsByRegistrationPlate(string registrationPlate) {
+        return _parkingIntervals.FindAll(x => x.RegistrationPlate == registrationPlate);
     }
 
-    public virtual double CalculateTotal()
-    {
-        //TODO: implement me
-        throw new NotImplementedException();
+    public virtual double CalculateTotal() {
+        return _parkingIntervals.Sum(x => x.HoursParked * this.Price);
     }
 
     public override string ToString() {
         return
-            ($"Parking Spot #{Id}\n"
-            + $"Occupied: {Occupied}\n"
-            + $"Type: {Type}\n"
-            + $"Price per hour: {Price:F2} BGN").Trim();
+            ($"> Parking Spot #{Id}\n"
+            + $"> Occupied: {Occupied}\n"
+            + $"> Type: {Type}\n"
+            + $"> Price per hour: {Price:F2} BGN").Trim();
     }
 
 }

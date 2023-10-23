@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 public class ParkingInterval
@@ -40,7 +41,7 @@ public class ParkingInterval
             if (ParkingSpot is SubscriptionParkingSpot)
                 return 0;
             else {
-                return ParkingSpot.Price* HoursParked;
+                return ParkingSpot.Price * HoursParked;
             }
         }
     }
@@ -51,9 +52,11 @@ public class ParkingInterval
         HoursParked = hoursParked;
     }
 
-    public override string ToString()
-    {
-        //TODO: Implement me
-        throw new NotImplementedException();
-   }
+    public override string ToString() {
+        return
+            ($"> Parking Spot #{ParkingSpot.Id}\n"
+            + $"> RegistrationPlate: {RegistrationPlate}\n"
+            + $"> HoursParked: {HoursParked}\n"
+            + $"> Revenue: {Revenue:F2} BGN").Trim();
+    }
 }
