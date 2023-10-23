@@ -28,10 +28,10 @@ public abstract class ParkingSpot
     }
 
     public ParkingSpot(int id, bool occupied, string type, double price) {
-        _id = id;
-        _occupied = occupied;
-        _type = type;
-        _price = price;
+        Id = id;
+        Occupied = occupied;
+        Type = type;
+        Price = price;
         _parkingIntervals = new();
     }
 
@@ -53,11 +53,12 @@ public abstract class ParkingSpot
     }
 
     public override string ToString() {
-        return
-            ($"> Parking Spot #{Id}\n"
-            + $"> Occupied: {Occupied}\n"
-            + $"> Type: {Type}\n"
-            + $"> Price per hour: {Price:F2} BGN").Trim();
+        StringBuilder sb = new();
+        sb.AppendLine($"> Parking Spot #{Id}");
+        sb.AppendLine($"> Occupied: {Occupied}");
+        sb.AppendLine($"> Type: {Type}\n");
+        sb.AppendLine($"> Price per hour: {Price:F2} BGN");
+        return sb.ToString().Trim();
     }
 
 }
