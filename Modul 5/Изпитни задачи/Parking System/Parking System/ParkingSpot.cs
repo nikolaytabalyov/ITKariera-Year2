@@ -35,10 +35,10 @@ public abstract class ParkingSpot
         _parkingIntervals = new();
     }
 
-    public virtual bool ParkVehicle(string registrationPlate, int hoursParked, string type)
-    {
-        //TODO: implement me
-        throw new NotImplementedException();
+    public virtual bool ParkVehicle(string registrationPlate, int hoursParked, string type) {
+        return true;
+
+
     }
 
     public List<ParkingInterval> GetAllParkingIntervalsByRegistrationPlate(string registrationPlate)
