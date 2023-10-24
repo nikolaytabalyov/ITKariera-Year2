@@ -19,7 +19,7 @@ public class ParkingInterval
     public string RegistrationPlate {
         get => _registrationPlate;
         set {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
                 _registrationPlate = value;
             else
                 throw new ArgumentException("Registration plate can’t be null or empty!");
@@ -29,7 +29,7 @@ public class ParkingInterval
     public int HoursParked {
         get => _hoursParked;
         set {
-            if (_hoursParked > 0)
+            if (value > 0)
                 _hoursParked = value;
             else
                 throw new ArgumentException("Hours parked can't be zero or negative!");

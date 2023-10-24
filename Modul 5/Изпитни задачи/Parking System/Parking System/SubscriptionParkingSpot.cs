@@ -8,7 +8,7 @@ internal class SubscriptionParkingSpot : ParkingSpot
     public string RegistrationPlate {
         get => _registrationPlate;
         set {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
                 _registrationPlate = value;
             else
                 throw new ArgumentException("Registration plate can’t be null or empty!");

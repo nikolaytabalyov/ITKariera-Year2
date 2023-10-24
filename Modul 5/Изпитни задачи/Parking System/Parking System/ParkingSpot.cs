@@ -20,9 +20,9 @@ public abstract class ParkingSpot
     public double Price {
         get => _price;
         set {
-            if (_price > 0)
+            if (value > 0)
                 _price = value;
-            else
+            else 
                 throw new ArgumentException("Parking price cannot be less or equal to 0!");
         }
     }
@@ -38,6 +38,7 @@ public abstract class ParkingSpot
     public virtual bool ParkVehicle(string registrationPlate, int hoursParked, string type) {
         if (this.Type == type && !Occupied) {
             _parkingIntervals.Add(new ParkingInterval(this, registrationPlate, hoursParked));
+            Occupied = true;
             return true;
         } else {
             return false;
@@ -56,7 +57,7 @@ public abstract class ParkingSpot
         StringBuilder sb = new();
         sb.AppendLine($"> Parking Spot #{Id}");
         sb.AppendLine($"> Occupied: {Occupied}");
-        sb.AppendLine($"> Type: {Type}\n");
+        sb.AppendLine($"> Type: {Type}");
         sb.AppendLine($"> Price per hour: {Price:F2} BGN");
         return sb.ToString().Trim();
     }

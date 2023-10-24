@@ -8,37 +8,35 @@ internal class ParkingController {
     }
 
     public string CreateParkingSpot(List<string> args) {
-        try {
-            int id = int.Parse(args[0]);
-            if (_parkingSpots.Where(x => x.Id == int.Parse(args[0])).ToList().Count > 0)
-                return $"Parking spot {id} is already registered!";
 
-            bool occupied = bool.Parse(args[1]);
+        int id = int.Parse(args[0]);
+        if (_parkingSpots.Where(x => x.Id == int.Parse(args[0])).ToList().Count > 0)
+            return $"Parking spot {id} is already registered!";
 
-            string type = args[2];
-            if (type != "car" && type != "bus" && type != "subscription")
-                return "Unable to create a parking spot!";
+        bool occupied = bool.Parse(args[1]);
 
-            double price = double.Parse(args[3]);
-
-            switch (type) {
-                case "subscription":
-                    string registrationPlate = args[4];
-                    _parkingSpots.Add(new SubscriptionParkingSpot(id, occupied, price, registrationPlate));
-                    break;
-                case "car":
-                    _parkingSpots.Add(new CarParkingSpot(id, occupied, price));
-                    break;
-                case "bus":
-                    _parkingSpots.Add(new BusParkingSpot(id, occupied, price));
-                    break;
-            }
-
-            return $"Parking spot {id} was successfully registered in the system!";
-        }
-        catch (Exception) {
+        string type = args[2];
+        if (type != "car" && type != "bus" && type != "subscription")
             return "Unable to create a parking spot!";
+
+        double price = double.Parse(args[3]);
+
+        switch (type) {
+            case "subscription":
+                string registrationPlate = args[4];
+                Console.WriteLine(registrationPlate);
+                _parkingSpots.Add(new SubscriptionParkingSpot(id, occupied, price, registrationPlate));
+                break;
+            case "car":
+                _parkingSpots.Add(new CarParkingSpot(id, occupied, price));
+                break;
+            case "bus":
+                _parkingSpots.Add(new BusParkingSpot(id, occupied, price));
+                break;
         }
+
+        return $"Parking spot {id} was successfully registered in the system!";
+
     }
 
     public string ParkVehicle(List<string> args) {
@@ -84,6 +82,7 @@ internal class ParkingController {
         int parkingSpotId = int.Parse(args[0]);
         string registrationPlate = args[1];
         StringBuilder info = new();
+        info.AppendLine($"Parking intervals for parking spot {parkingSpotId}:");
         if (_parkingSpots.Where(x => x.Id == parkingSpotId).ToList().Count > 0) {
             foreach (var spot in _parkingSpots.Find(x => x.Id == parkingSpotId).GetAllParkingIntervalsByRegistrationPlate(registrationPlate)) {
                 info.AppendLine(spot.ToString());
