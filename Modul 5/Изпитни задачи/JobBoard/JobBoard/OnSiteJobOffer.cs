@@ -5,6 +5,9 @@ using System.Text;
 
 public class OnSiteJobOffer : JobOffer {
     private string _city;
+    public OnSiteJobOffer(string jobTitle, string company, double salary, string city) : base(jobTitle, company, salary) {
+        City = city;
+    }
 
     public string City {
         get => _city;
@@ -16,9 +19,6 @@ public class OnSiteJobOffer : JobOffer {
         }
     }
 
-    public OnSiteJobOffer(string jobTitle, string company, double salary, string city) : base(jobTitle, company, salary) {
-        City = city;
-    }
 
     public override string ToString() {
         StringBuilder output = new StringBuilder();

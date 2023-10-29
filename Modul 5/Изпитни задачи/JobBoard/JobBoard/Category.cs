@@ -24,7 +24,11 @@ public class Category {
 
     public void AddJobOffer(JobOffer offer) => _jobOffers.Add(offer);
 
-    public double AverageSalary() => _jobOffers.Sum(x => x.Salary) / _jobOffers.Count;
+    public double AverageSalary() {
+        if (_jobOffers.Count > 0)
+            return _jobOffers.Sum(x => x.Salary) / _jobOffers.Count;
+        else return 0;
+    }
 
     public List<JobOffer> GetOffersAboveSalary(double salary) => _jobOffers.Where(x => x.Salary >= salary).OrderBy(x => x.Salary).ToList();
 
