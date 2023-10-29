@@ -30,7 +30,7 @@ public class Category {
         else return 0;
     }
 
-    public List<JobOffer> GetOffersAboveSalary(double salary) => _jobOffers.Where(x => x.Salary >= salary).OrderBy(x => x.Salary).ToList();
+    public List<JobOffer> GetOffersAboveSalary(double salary) => _jobOffers.Where(x => x.Salary >= salary).OrderByDescending(x => x.Salary).ToList();
 
     public List<JobOffer> GetOffersWithoutSalary() => _jobOffers.Where(x => x.Salary == 0).OrderBy(x => x.Company).ToList();
 
