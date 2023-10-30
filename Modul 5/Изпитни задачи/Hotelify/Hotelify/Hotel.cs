@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace Hotelify {
     public class Hotel : Accommodation {
-        //Your code goes here
-    }
+		private int _starCount;
+
+        public Hotel(int refNumber, string name, string description, int price, string location, int starCount) : base(refNumber, name, description, price, location) {
+            StarCount = starCount;
+        }
+
+        public int StarCount {
+			get { return _starCount; }
+			set { _starCount = value; }
+		}
+
+	}
 }

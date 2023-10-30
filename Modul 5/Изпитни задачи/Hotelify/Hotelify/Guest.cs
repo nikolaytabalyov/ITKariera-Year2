@@ -6,6 +6,18 @@ using System.Threading.Tasks;
 
 namespace Hotelify {
     public class Guest {
-        //Your code goes here
-    }
+		private string _name;
+		private int _budget;
+
+		public int Budget {
+			get { return _budget; }
+			set { _budget = value; }
+		}
+
+		public string Name {
+			get { return _name; }
+			set { _name = value; }
+		}
+
+	}
 }

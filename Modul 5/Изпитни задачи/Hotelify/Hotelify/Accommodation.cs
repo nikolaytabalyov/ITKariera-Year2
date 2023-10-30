@@ -15,7 +15,15 @@ namespace Hotelify {
 		private int _price;
 		private string _location;
 
-		public int RefNumber {
+        protected Accommodation(int refNumber, string name, string description, int price, string location) {
+            RefNumber = refNumber;
+            Name = name;
+            Description = description;
+            Price = price;
+            Location = location;
+        }
+
+        public int RefNumber {
 			get { return _refNumber; }
 			set { _refNumber = value; }
 		}
