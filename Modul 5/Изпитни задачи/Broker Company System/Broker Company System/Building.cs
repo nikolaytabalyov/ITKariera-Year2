@@ -20,8 +20,9 @@ namespace Broker_Company_System {
 			get { return _name; }
 			set {
 				if (string.IsNullOrWhiteSpace(value))
-					throw new ArgumentException("Building name must be not null or empty!");
-				_name = value; 
+					Console.WriteLine("Building name must be not null or empty!");
+				else
+                    _name = value; 
 			}
 		}
 
@@ -29,8 +30,9 @@ namespace Broker_Company_System {
             get { return _city; }
             set {
 				if (string.IsNullOrWhiteSpace(value))
-					throw new ArgumentException("City must be not null or empty!");
-                _city = value;
+					Console.WriteLine("City must be not null or empty!");
+                else
+                    _city = value;
             }
         }
 
@@ -38,8 +40,9 @@ namespace Broker_Company_System {
             get { return _stars; }
             set {
                 if (value < 0 || value > 5)
-                    throw new ArgumentException("Stars cannot be less than 0 or above 5!");
-                _stars = value;
+                    Console.WriteLine("Stars cannot be less than 0 or above 5!");
+                else
+                    _stars = value;
             }
         }
 
@@ -47,8 +50,9 @@ namespace Broker_Company_System {
             get { return _rentAmount; }
             set {
                 if (value <= 0)
-                    throw new ArgumentException("Rent amount cannot be less or equal to 0!");
-				_rentAmount = value;
+                    Console.WriteLine("Rent amount cannot be less or equal to 0!");
+				else
+                    _rentAmount = value;
             }
         }
 		public bool IsAvailable {

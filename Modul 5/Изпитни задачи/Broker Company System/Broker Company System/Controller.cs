@@ -13,27 +13,27 @@ namespace Broker_Company_System {
         public string CreateCompany(List<string> args) {
             if (!_companies.ContainsKey(args[0])) {
                 _companies.Add(args[0], new Company(args[0]));
-                return $"Company {_companies[args[0]].Name} was successfully registerd in the system!";
+                return $"Company {_companies[args[0]].Name} was successfully registered in the system!";
             } else {
                 return $"Company {_companies[args[0]].Name} is already registered!";
             }
         }
         public string RegisterBuilding(List<string> args) {
-            if (!_companies.ContainsKey(args[0]))
-                return $"Invalid Company: {args[0]}. Cannot find it in system!";
+            if (!_companies.ContainsKey(args[5]))
+                return $"Invalid Company: {args[5]}. Cannot find it in system!";
             if (_companies.Values.Any(x => x.GetBuildingByName(args[1]) is not null))
-                return $"Building {args[1]} is already registered in {args[0]}!";
+                return $"Building {args[1]} is already registered in {args[5]}!";
 
             switch (args[0]) {
                 case "Hotel":
                     _companies[args[5]].AddBuilding(new Hotel(args[1], args[2], int.Parse(args[3]), double.Parse(args[4])));
-                    return $": Building {args[1]} was successfully registerd in {args[5]} catalog!";
+                    return $"Building {args[1]} was successfully registerd in {args[5]} catalog!";
                 case "Residence":
                     _companies[args[5]].AddBuilding(new Residence(args[1], args[2], int.Parse(args[3]), double.Parse(args[4])));
-                    return $": Building {args[1]} was successfully registerd in {args[5]} catalog!";
+                    return $"Building {args[1]} was successfully registerd in {args[5]} catalog!";
                 case "Business":
                     _companies[args[5]].AddBuilding(new Business(args[1], args[2], int.Parse(args[3]), double.Parse(args[4])));
-                    return $": Building {args[1]} was successfully registerd in {args[5]} catalog!";
+                    return $"Building {args[1]} was successfully registerd in {args[5]} catalog!";
             }
             return "I don't know man. Something is f*cked up!";
         }
@@ -44,8 +44,7 @@ namespace Broker_Company_System {
                 return $"Broker {args[0]} is already registered in {args[3]}!";
 
             _companies[args[3]].AddBroker(new Broker(args[0], int.Parse(args[1]), args[2]));
-            return "I don't know man. Something is f*cked up!";
-            throw new NotImplementedException();
+            return $"Broker {args[0]} was successfully hired in {args[3]}!";
         }
         public string RentBuilding(List<string> args) {
             if (_companies.ContainsKey(args[0])) {
@@ -72,7 +71,10 @@ namespace Broker_Company_System {
                 return $"Invalid Company: {args[0]}. Cannot find it in system!";
         }
         public string Shutdown() {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Companies: {_companies.Count}");
+            _companies.OrderBy(x => x.Key).ToList().ForEach(x => sb.AppendLine(x.Value.ToString()));
+            return sb.ToString().Trim();
         }
     }
 }

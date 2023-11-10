@@ -22,7 +22,7 @@ namespace Broker_Company_System {
             get { return _name; }
             set {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Broker name must be not null or empty!");
+                    Console.WriteLine("Broker name must be not null or empty!");
                 _name = value;
             }
         }
@@ -32,7 +32,7 @@ namespace Broker_Company_System {
             get { return _age; }
             set {
                 if (value < 16 || value > 70)
-                    throw new ArgumentException("Broker's age cannot be less than 16 or above 70!");
+                    Console.WriteLine("Broker's age cannot be less than 16 or above 70!");
                 _age = value;
             }
         }
@@ -40,7 +40,7 @@ namespace Broker_Company_System {
             get { return _city; }
             set {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("City must be not null or empty!");
+                    Console.WriteLine("City must be not null or empty!");
                 _city = value;
             }
         }
@@ -51,17 +51,17 @@ namespace Broker_Company_System {
         }
         
         public double ReceiveBonus(Building building) {
-            double bonus = building.RentAmount * 2 * building.Stars / 100;
-            Bonus += bonus;
-            return bonus;
+            _buildings.Add(building);
+            Bonus += building.RentAmount * 2 * building.Stars / 100;
+            return Bonus;
         }
 
         public override string ToString() {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"****Building: {Name} <{Age}>");
             sb.AppendLine($"****Location: {City}");
-            sb.AppendLine($"****RentAmount: {Bonus}");
-            _buildings.ForEach(x => sb.AppendLine($"****{x.Name}"));
+            sb.AppendLine($"****Bonus: {Bonus}");
+            _buildings.ForEach(x => sb.AppendLine($"******{x.Name}"));
             return sb.ToString().Trim();
         }
     }

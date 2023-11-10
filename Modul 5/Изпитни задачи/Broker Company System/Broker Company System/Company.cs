@@ -20,8 +20,9 @@ namespace Broker_Company_System {
 			get { return _name; }
 			set {
 				if (string.IsNullOrEmpty(value))
-					throw new ArgumentException("Company name must not be null or empty!");
-				_name = value;
+					Console.WriteLine("Company name must not be null or empty!");
+				else 
+					_name = value;
 			}
 		}
 
@@ -35,13 +36,13 @@ namespace Broker_Company_System {
 		}
 
 		public Broker GetBrokerByName(string name) {
-			if (_brokers.Where(x => x.Name == name).ToList().Count == 0)
+			if (_brokers.Where(x => x.Name == name).ToList().Count != 0)
 				return _brokers.Find(x => x.Name == name);
 			else
 				return null;
 		}
 		public Building GetBuildingByName(string name) {
-			if (_buildings.Where(x => x.Name == name).ToList().Count == 0)
+			if (_buildings.Where(x => x.Name == name).ToList().Count != 0)
 				return _buildings.Find(x => x.Name == name);
 			else
 				return null;
@@ -52,8 +53,8 @@ namespace Broker_Company_System {
             sb.AppendLine($"Company: {Name}");
             sb.AppendLine($"##Brokers: {_brokers.Count}");
             _brokers.ForEach(x => sb.AppendLine(x.ToString()));
-            sb.AppendLine($"##Buildings - {_buildings.Count}");
-            _brokers.ForEach(x => sb.AppendLine(x.ToString()));
+            sb.AppendLine($"##Buildings: {_buildings.Count}");
+            _buildings.ForEach(x => sb.AppendLine(x.ToString()));
             return sb.ToString().Trim();
         }
     }
