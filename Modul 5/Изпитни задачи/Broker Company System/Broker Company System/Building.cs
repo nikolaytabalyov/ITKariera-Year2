@@ -13,6 +13,7 @@ namespace Broker_Company_System {
             City = city;
             Stars = stars;
             RentAmount = rentAmount;
+            IsAvailable = true;
         }
 
         public string Name {

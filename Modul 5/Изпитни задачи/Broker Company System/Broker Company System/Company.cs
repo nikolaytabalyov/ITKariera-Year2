@@ -46,5 +46,15 @@ namespace Broker_Company_System {
 			else
 				return null;
 		}
-	}
+
+        public override string ToString() {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Company: {Name}");
+            sb.AppendLine($"##Brokers: {_brokers.Count}");
+            _brokers.ForEach(x => sb.AppendLine(x.ToString()));
+            sb.AppendLine($"##Buildings - {_buildings.Count}");
+            _brokers.ForEach(x => sb.AppendLine(x.ToString()));
+            return sb.ToString().Trim();
+        }
+    }
 }

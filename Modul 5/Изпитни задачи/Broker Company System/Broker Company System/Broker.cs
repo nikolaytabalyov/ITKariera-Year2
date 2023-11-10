@@ -11,7 +11,7 @@ namespace Broker_Company_System {
         private string _city;
         private double _bonus;
         private readonly List<Building> _buildings;
-        protected Broker(string name, int age, string city) {
+        public Broker(string name, int age, string city) {
             Name = name;
             Age = age;
             City = city;
