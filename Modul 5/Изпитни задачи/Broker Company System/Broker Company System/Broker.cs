@@ -22,7 +22,7 @@ namespace Broker_Company_System {
             get { return _name; }
             set {
                 if (string.IsNullOrWhiteSpace(value))
-                    Console.WriteLine("Broker name must be not null or empty!");
+                    throw new ArgumentException("Broker name must be not null or empty!");
                 _name = value;
             }
         }
@@ -32,7 +32,7 @@ namespace Broker_Company_System {
             get { return _age; }
             set {
                 if (value < 16 || value > 70)
-                    Console.WriteLine("Broker's age cannot be less than 16 or above 70!");
+                    throw new ArgumentException("Broker's age cannot be less than 16 or above 70!");
                 _age = value;
             }
         }
@@ -40,7 +40,7 @@ namespace Broker_Company_System {
             get { return _city; }
             set {
                 if (string.IsNullOrWhiteSpace(value))
-                    Console.WriteLine("City must be not null or empty!");
+                    throw new ArgumentException("City must be not null or empty!");
                 _city = value;
             }
         }

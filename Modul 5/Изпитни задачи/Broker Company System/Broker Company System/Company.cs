@@ -20,9 +20,8 @@ namespace Broker_Company_System {
 			get { return _name; }
 			set {
 				if (string.IsNullOrEmpty(value))
-					Console.WriteLine("Company name must not be null or empty!");
-				else 
-					_name = value;
+                    throw new ArgumentException("Company name must not be null or empty!");
+				_name = value;
 			}
 		}
 

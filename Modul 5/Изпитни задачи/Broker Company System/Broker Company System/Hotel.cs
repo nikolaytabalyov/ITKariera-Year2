@@ -12,9 +12,8 @@ namespace Broker_Company_System {
 			get { return _name; }
 			set {
 				if (!value.EndsWith("Hotel"))
-                    Console.WriteLine("Name of hotel buildings should end on Hotel!");
-				else
-					_name = value;
+                    throw new ArgumentException("Name of hotel buildings should end on Hotel!");
+				_name = value;
 			}
 		}
 
