@@ -10,7 +10,8 @@ namespace CryptoMiningSystem.Entities.Components.VideoCards {
         public GameVideoCard(string model, decimal price, int generation, int lifeWorkingHours) : base(model, price, generation, lifeWorkingHours) {
             if (generation > 9)
                 throw new ArgumentException("Game video card generation cannot be more than 9!");
-            Generation = generation;
+            else 
+                Generation = generation;
             MinedMoneyPerHour += MinedMoneyPerHour;
         }
     }

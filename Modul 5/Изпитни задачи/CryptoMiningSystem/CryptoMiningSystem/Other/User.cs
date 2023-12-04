@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoMiningSystem.Entities {
-    using CryptoMiningSystem.Entities.Contracts;
+namespace CryptoMiningSystem.Entities
+{
+    using CryptoMiningSystem.Interfaces;
     //using CryptoMiningSystem.Utilities;
     using System;
     using System.Text;
@@ -31,7 +32,7 @@ namespace CryptoMiningSystem.Entities {
         }
         public int Stars {
             get => _stars;
-            set => Stars = (int)Money / 100;
+            set => _stars = (int)Money / 100;
         }
         public decimal Money {
             get => _money;

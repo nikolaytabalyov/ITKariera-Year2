@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoMiningSystem.Entities {
+namespace CryptoMiningSystem.Entities
+{
     using Components.Processors;
     using Components.VideoCards;
-    using CryptoMiningSystem.Entities.Contracts;
+    using CryptoMiningSystem.Interfaces;
     //using CryptoMiningSystem.Utilities;
     using System;
     using System.Text;
@@ -37,8 +38,9 @@ namespace CryptoMiningSystem.Entities {
 
         public decimal MinedAmountPerHour {
             get => _minedAmountPerHour;
-            set 
+            set {
                 _minedAmountPerHour = VideoCard.MinedMoneyPerHour * Processor.MinedMultiplier;
+            }
         }
     }
 }
