@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoMiningSystem.Entities.Components {
+namespace CryptoMiningSystem.Entities.Components
+{
     //using CryptoMiningSystem.Utilities;
     using Contracts;
+    using CryptoMiningSystem.Interfaces;
     using System;
     using System.Text;
     public abstract class Component : IComponent {
@@ -43,7 +45,7 @@ namespace CryptoMiningSystem.Entities.Components {
             get => _generation;
             set {
                 if (value <= 0)
-                    throw new ArgumentException("");
+                    throw new ArgumentException("Generation cannot be 0 or negative!");
                 _generation = value;
             }
         }

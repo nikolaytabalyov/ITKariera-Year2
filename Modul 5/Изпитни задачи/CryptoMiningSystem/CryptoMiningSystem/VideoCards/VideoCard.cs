@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoMiningSystem.Entities.Components.VideoCards {
+namespace CryptoMiningSystem.Entities.Components.VideoCards
+{
     using CryptoMiningSystem.Entities.Components;
     //using CryptoMiningSystem.Utilities;
     using Contracts;
     using System;
+    using CryptoMiningSystem.Interfaces;
+
     public abstract class VideoCard : Component, IVideoCard {
         private int _ram;
         private decimal _minedMoneyPerHour;
