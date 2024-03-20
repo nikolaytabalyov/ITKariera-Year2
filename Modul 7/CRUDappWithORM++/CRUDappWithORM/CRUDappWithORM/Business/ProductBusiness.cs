@@ -17,7 +17,7 @@ namespace CRUDappWithORM.Business {
 
         public Product Get(int id) {
             using (productContext = new ProductContext()) {
-                return productContext.Products.Find(id);
+                return productContext.Products.FirstOrDefault(p => p.Id == id);
             }
         }
 
@@ -40,7 +40,7 @@ namespace CRUDappWithORM.Business {
         
         public void Delete(int id) {
             using (productContext = new ProductContext()) {
-                var product = productContext.Products.Find(id);
+                var product = productContext.Products.FirstOrDefault(p => p.Id == id);
                 if (product != null) { 
                     productContext.Products.Remove(product);
                     productContext.SaveChanges();
