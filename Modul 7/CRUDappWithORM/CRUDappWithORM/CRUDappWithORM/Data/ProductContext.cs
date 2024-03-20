@@ -17,7 +17,7 @@ namespace CRUDappWithORM.Data {
         public DbSet<Product> Products { get; set; }    
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-9LO8QGB;Database=ProductDB;Integrated Security = true;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-9LO8QGB;Database=ProductDB;Integrated Security = true;Encrypt=false;");
         }
     }
 }

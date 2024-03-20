@@ -38,10 +38,10 @@ namespace CRUDappWithORM.Business {
             }
         }
         
-        public void Delete(Product product) {
+        public void Delete(int id) {
             using (productContext = new ProductContext()) {
-                var item = productContext.Products.Find(product.Id);
-                if (item != null) { 
+                var product = productContext.Products.Find(id);
+                if (product != null) { 
                     productContext.Products.Remove(product);
                     productContext.SaveChanges();
                 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CRUDappWithORM.Presentation {
     public class Display {
-        private int _closeOperationId = -6;
+        private int _closeOperationId = 6;
         private ProductBusiness productBusiness = new ProductBusiness();
 
         public Display() {
@@ -50,7 +50,7 @@ namespace CRUDappWithORM.Presentation {
             if (product == null)
                 Console.WriteLine("Product was not found!");
 
-            productBusiness.Delete(product);
+            productBusiness.Delete(id);
             Console.WriteLine("This product has been deleted!");
         }
 
@@ -80,8 +80,8 @@ namespace CRUDappWithORM.Presentation {
                 Console.WriteLine("Enter price: ");
                 product.Price = decimal.Parse(Console.ReadLine());
                 Console.WriteLine("Enter stock: ");
-                product.Price = int.Parse(Console.ReadLine());
-                productBusiness.Add(product);
+                product.Stock = int.Parse(Console.ReadLine());
+                productBusiness.Update(product);
             } else {
                 Console.WriteLine("Product not found!");
             }
@@ -94,7 +94,7 @@ namespace CRUDappWithORM.Presentation {
             Console.WriteLine("Enter price: ");
             product.Price = decimal.Parse(Console.ReadLine());
             Console.WriteLine("Enter stock: ");
-            product.Price = int.Parse(Console.ReadLine());
+            product.Stock = int.Parse(Console.ReadLine());
             productBusiness.Add(product);
         }
 
