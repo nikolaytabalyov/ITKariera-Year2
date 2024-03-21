@@ -5,7 +5,7 @@
 namespace CRUDappWithORMv2.Migrations
 {
     /// <inheritdoc />
-    public partial class initialv2 : Migration
+    public partial class initialD : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,7 +32,8 @@ namespace CRUDappWithORMv2.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId1 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,12 +43,22 @@ namespace CRUDappWithORMv2.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_CategoryId1",
+                        column: x => x.CategoryId1,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_CategoryId1",
+                table: "Products",
+                column: "CategoryId1");
         }
 
         /// <inheritdoc />

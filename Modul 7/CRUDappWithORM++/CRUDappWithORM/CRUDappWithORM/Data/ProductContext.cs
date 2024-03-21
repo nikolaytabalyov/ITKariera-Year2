@@ -19,14 +19,14 @@ namespace CRUDappWithORM.Data {
         public DbSet<Category> Categories { get; set; } // Include the DbSet for Category
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-9LO8QGB;Database=ProductDBv2;Integrated Security = true;Encrypt=false;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-JASEM2B\SQLEXPRESS;Database=ProductDBv2;Integrated Security = true;Encrypt=false;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             // Configure the relationship between Product and Category
             modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category)
-                .WithMany()
+                .WithMany(p => p.Products)
                 .HasForeignKey(p => p.CategoryId)
                 .IsRequired(false); // Allow products without categories
         }

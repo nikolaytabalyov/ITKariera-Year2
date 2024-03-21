@@ -88,7 +88,11 @@ namespace CRUDappWithORM.Presentation {
                     Console.WriteLine($"Name: {product.Name}");
                     Console.WriteLine($"Price: {product.Price}");
                     Console.WriteLine($"Stock: {product.Stock}");
+                    Console.WriteLine($"CategoryId: {product.CategoryId}");
+                    Console.WriteLine($"Category Name: {product.Category.Name}");
                     Console.WriteLine(new string('-', 40));
+                } else {
+                    Console.WriteLine("Product not found!");
                 }
             } else {
                 Category category = categoryBusiness.Get(id);
@@ -97,6 +101,9 @@ namespace CRUDappWithORM.Presentation {
                     Console.WriteLine($"ID: {category.Id}");
                     Console.WriteLine($"Name: {category.Name}");
                     Console.WriteLine(new string('-', 40));
+                } else {
+                    Console.WriteLine("Category not found!");
+
                 }
             }
         }
@@ -158,8 +165,6 @@ namespace CRUDappWithORM.Presentation {
                 productBusiness.Add(product);
             } else {
                 Category category = new Category();
-                Console.WriteLine("Enter Id: ");
-                category.Id = int.Parse(Console.ReadLine());
                 Console.WriteLine("Enter name: ");
                 category.Name = Console.ReadLine();
                 categoryBusiness.Add(category);
