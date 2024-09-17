@@ -14,10 +14,10 @@
         private static int GetGreatestCommonDivisorWithDivision(int a, int b) {
             if (b == 0)
                 return a;
-            int r = b;
+            /*int r = b;
             b = a % b;
-            a = r;
-            return GetGreatestCommonDivisorWithDivision(a, b);
+            a = r;*/
+            return GetGreatestCommonDivisorWithDivision(b, a % b);
         }
 
         private static int GetGreatestCommonDivisorWithSubstraction(int a, int b) {
