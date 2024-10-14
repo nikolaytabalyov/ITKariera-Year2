@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.DoubleFuFu", "01.DoubleFuFu\01.DoubleFuFu.csproj", "{9E181585-4F5B-4F3F-A58D-E6F170EBDCCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.LeastWalkedDistanceForFriends", "01.LeastWalkedDistanceForFriends\01.LeastWalkedDistanceForFriends.csproj", "{06F00E33-7911-42DB-AE5F-D12DCD7B7178}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E181585-4F5B-4F3F-A58D-E6F170EBDCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E181585-4F5B-4F3F-A58D-E6F170EBDCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E181585-4F5B-4F3F-A58D-E6F170EBDCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E181585-4F5B-4F3F-A58D-E6F170EBDCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F00E33-7911-42DB-AE5F-D12DCD7B7178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F00E33-7911-42DB-AE5F-D12DCD7B7178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F00E33-7911-42DB-AE5F-D12DCD7B7178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F00E33-7911-42DB-AE5F-D12DCD7B7178}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E97A18C-D03D-45BD-BFB7-79C4B494D003}
+	EndGlobalSection
+EndGlobal
