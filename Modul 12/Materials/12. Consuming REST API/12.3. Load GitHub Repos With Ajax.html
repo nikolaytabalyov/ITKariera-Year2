@@ -1,0 +1,43 @@
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Load GitHub Repos with AJAX</title>
+  <meta name="author" content="Dimitar Minchev" />
+  <meta name="description" content="Load GitHub Repos with AJAX" />
+ </head>
+ <body>
+  GitHub username:
+  <input type="text" id="username" value="dimitarminchev" />
+  <button onclick="loadRepos()">Load Repos</button>
+  <ul id="repos"></ul>
+  <script>
+    function loadRepos() {
+      const repos = document.getElementById("repos");
+      repos.innerHTML = '';
+      const username = document.getElementById("username").value;
+      const url = `https://api.github.com/users/${username}/repos`;
+      fetch(url)
+          .then((response) => response.json())
+          .then((data) => displayRepos(data))
+          .catch((err) => displayError(err))
+      function createRepo(name, url) {
+        const listItem = document.createElement("li");
+          listItem.innerHTML = `<a href="${url}">${name}</a>`;
+          return listItem;
+      }
+      function displayRepos(repoItems) {
+          repoItems.forEach(repo => {
+              const { full_name, html_url } = repo;
+              const repoItem = createRepo(full_name, html_url);
+              repos.appendChild(repoItem)
+          });
+      }
+      function displayError(err) {
+          const listItem = document.createElement('li');
+          listItem.textContent = err;
+          repos.appendChild(listItem);
+      }
+    }
+  </script>
+ </body>
+</html>
