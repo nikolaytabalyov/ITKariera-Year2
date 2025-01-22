@@ -1,0 +1,8 @@
+﻿@model IEnumerable<RecipeCatalog.Models.Recipe>
+
+<h1>Recipes</h1>
+<ul>
+    @foreach (var recipe in Model) {
+            <li>@recipe.Name</li>
+    }
+</ul>
